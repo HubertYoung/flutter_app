@@ -34,7 +34,7 @@ class SplashPageState extends State<SplashPage> {
   void _initAsync() async {
     await SpUtil.getInstance();
     _loadSplashData();
-    Observable.just(1).delay(new Duration(milliseconds: 500)).listen((_) {
+    Observable.just(1).delay(new Duration(seconds: 3)).listen((_) {
       SpUtil.putBool(Constant.KEY_GUIDE, false);
       if (SpUtil.getBool(Constant.KEY_GUIDE) != true && ObjectUtil.isNotEmpty(_guideList)) {
         SpUtil.putBool(Constant.KEY_GUIDE, true);
@@ -202,11 +202,11 @@ class SplashPageState extends State<SplashPage> {
                 : new Swiper(
                     autoStart: false,
                     circular: false,
-                    indicator: CircleSwiperIndicator(
-                      radius: 4.0,
-                      padding: EdgeInsets.only(bottom: 30.0),
-                      itemColor: Colors.black26,
-                    ),
+//                    indicator: CircleSwiperIndicator(
+//                      radius: 4.0,
+//                      padding: EdgeInsets.only(bottom: 30.0),
+//                      itemColor: Colors.black26,
+//                    ),
                     children: _bannerList),
           ),
           _buildAdWidget(),
@@ -223,7 +223,7 @@ class SplashPageState extends State<SplashPage> {
                     padding: EdgeInsets.all(12.0),
                     child: new Text(
                       '跳过 $_count',
-                      style: new TextStyle(fontSize: 14.0, color: Colors.white),
+                      style: new TextStyle(fontSize: 14.0, color: Colors.redAccent),
                     ),
                     decoration: new BoxDecoration(//
                         color: Color(0x66000000), //
